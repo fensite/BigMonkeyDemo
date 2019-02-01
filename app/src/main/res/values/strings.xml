@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScreeningDemo</string>
+    <string name="open_scanning_assistant">打开投屏助手</string>
+    <string name="scanning_assistant_title">央视影音投屏助手</string>
+</resources>
