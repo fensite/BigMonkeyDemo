@@ -23,6 +23,8 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import newtv.tv.serverlibrary.httpServer;
 import newtv.tv.serverlibrary.utils.wifiUtil;
+import tv.newtv.screening.utils.JsonParse;
+import tv.newtv.screening.utils.ScanningInfo;
 import tv.newtv.screening.zxing.encoding.EncodingHandler;
 
 /**
@@ -110,42 +112,51 @@ public class tvShow extends Activity {
     private class onReceivePhoneCommand implements httpServer.severCallBack{
 
         @Override
-        public void onReceiveImg(String s) {
-
-        }
+        public void onReceiveImg(String s) { }
 
         @Override
-        public void onReceiveDocument(String s) {
-
-        }
+        public void onReceiveDocument(String s) { }
 
         @Override
-        public void onReceiveVideo(String s) {
-
-        }
+        public void onReceiveVideo(String s) { }
 
         @Override
-        public void onReceiveMusic(String s) {
-
-        }
+        public void onReceiveMusic(String s) { }
 
         @Override
         public void onReceiveCommand(String s) {
-            try {
-                Log.d(Constant.TAG,"========onReceiveCommand:" + s);
-                JSONObject command = new JSONObject(s);
-//                String type = command.getString("type");
-//                if (type != null && type.equalsIgnoreCase("play_url")) {
-//                    String playurl = command.getString("info");
-//                    Toast.makeText(mContext,"手机传过来的地址\n" + playurl,Toast.LENGTH_LONG).show();
-//                } else {
-                    Log.d(Constant.TAG,"========onReceiveCommand else");
-                    Intent intent = new Intent(mContext, PlayActivity.class);
-                    startActivity(intent);
-//                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            Log.d(Constant.TAG,"========onReceiveCommand:" + s);
+            ScanningInfo info = JsonParse.ScanningInfoParse(s);
+            if(info == null) {//测试直接播放一个cctv5直播
+                Log.e(Constant.TAG, "========发生错误，未获取到有效信息");
+                Intent intent = new Intent(mContext, PlayActivity.class);
+                startActivity(intent);
+            }
+            switch (info.m_type){
+                case "liveUrl":
+                    if (info.m_url != null && (info.m_action != null) && info.m_action.equalsIgnoreCase("play")){
+                        // 打开视频播放页，全屏播放
+                    } else {
+                        Log.e(Constant.TAG,"========action:" + info.m_action);
+                    }
+                    break;
+                case "vodUrl":
+                    if (info.m_action != null && info.m_action.equalsIgnoreCase("play")) {
+                        // 打开视频播放页，全屏播放并跳转到起播时长
+                    }
+                    break;
+                case "remoteControl":
+
+                    break;
+                case "livePath":
+                    break;
+                case "requestConnect":
+                    // 请求连接，打开投屏助手帮助界面
+                    break;
+                default:
+                    break;
             }
         }
     }
+
 }

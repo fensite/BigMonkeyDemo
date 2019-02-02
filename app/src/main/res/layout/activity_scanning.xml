@@ -8,7 +8,7 @@
 
     <TextView
         android:paddingLeft="50dp"
-        android:paddingTop="10dp"
+        android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="#00000000"
@@ -73,7 +73,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="#0000"
-                    android:drawableTop="@drawable/cntv_4040"
+                    android:drawableTop="@drawable/holiday_party"
                     android:text="节日晚会"
                     android:textColor="#FFFFFF"/>
                 <Button
@@ -81,7 +81,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="#0000"
-                    android:drawableTop="@drawable/cntv_4040"
+                    android:drawableTop="@drawable/wonderful_event"
                     android:text="精彩赛事"
                     android:textColor="#FFFFFF"/>
                 <Button
@@ -89,7 +89,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="#0000"
-                    android:drawableTop="@drawable/cntv_4040"
+                    android:drawableTop="@drawable/watching"
                     android:text="尽情观看"
                     android:textColor="#FFFFFF"/>
 
