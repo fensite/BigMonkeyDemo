@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tv.newtv.screening">
+    package="com.fensite.screening">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.fensite.screening.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="@string/app_name">
             <intent-filter>
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".tvShow"
+            android:name="com.fensite.screening.tvShow"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
-        <activity android:name=".zxing.activity.CaptureActivity"
+        <activity android:name="com.fensite.screening.zxing.activity.CaptureActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-        <service android:name=".myServer"></service>
-        <activity android:name=".PlayActivity"></activity>
+        <service android:name="com.fensite.screening.myServer"></service>
+        <activity android:name="com.fensite.screening.PlayActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络权限 -->

@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"/>
 
-        <tv.newtv.screening.zxing.view.ViewfinderView
+        <com.fensite.screening.zxing.view.ViewfinderView
             android:id="@+id/viewfinder_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
